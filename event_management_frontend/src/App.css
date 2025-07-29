@@ -26,38 +26,106 @@
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 18px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+.navbar {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 2rem;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 1rem;
+}
+
+.nav-link {
+  margin: 0 8px;
   color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
+  text-decoration: none;
+  font-weight: 500;
 }
-
-.App-link {
+.nav-link:hover {
   color: var(--text-secondary);
-  transition: color 0.3s ease;
+  text-decoration: underline;
 }
 
+.btn {
+  padding: 8px 18px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 7px;
+  cursor: pointer;
+  transition: background 0.19s;
+}
+.btn:last-child { margin-right: 0; }
+.btn:hover {
+  background: #539bf5;
+}
+.btn:active {
+  background: #276eb7;
+}
+
+.btn-outline {
+  background: var(--bg-primary);
+  color: var(--button-bg);
+  border: 1.4px solid var(--button-bg);
+}
+.btn-outline:hover, .btn-outline:active {
+  background: #e6f0ff;
+  color: #0056b3;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin: 11px 0 3px 0;
+}
+input, select, textarea {
+  font-size: 1rem;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+input[type="search"] {
+  width: 200px;
+}
+
+ul {
+  padding: 0;
+  list-style: disc inside;
+}
+li {
+  margin-bottom: 6px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 22px 0 13px 0;
+}
+
+.notification {
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(13px);}
+  to { opacity: 1; transform: none;}
+}
+
+/* Theme toggle button */
 .theme-toggle {
   position: absolute;
   top: 20px;
@@ -73,32 +141,32 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
-
 .theme-toggle:active {
-  transform: translateY(0);
+  transform: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Responsive design for mobile */
 @media (max-width: 768px) {
+  .container {
+    padding: 5px;
+  }
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+    gap: 8px;
+    font-size: 1rem;
+  }
   .theme-toggle {
     top: 10px;
     right: 10px;
-    padding: 8px 16px;
+    padding: 7px 12px;
     font-size: 12px;
+  }
+  form {
+    padding: 12px !important;
+    font-size: 1rem;
   }
 }
