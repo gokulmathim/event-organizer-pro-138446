@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { getEventById, getEventAttendees, rsvpEvent, getRSVPStatus as getRSVP } from "../api";
+import { getEventById, getEventAttendees, rsvpEvent, getRSVPStatus as getRSVP, deleteEvent } from "../api";
 import { navigate } from "./Router";
 import { useNotification } from "../contexts/NotificationContext";
 
