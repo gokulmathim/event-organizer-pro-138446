@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { getEventById, getEventAttendees, getRSVPStatus, deleteEvent } from "../api";
+import { getEventById, getEventAttendees, rsvpEvent, getRSVPStatus as getRSVP } from "../api";
 import { navigate } from "./Router";
 import { useNotification } from "../contexts/NotificationContext";
 
@@ -90,9 +90,8 @@ function EventDetail({ eventId }) {
 // RSVP component
 function RSVPSection({ event, user }) {
   const { notify } = useNotification();
-  const { rsvpEvent, getRSVPStatus } = require("../api");
   if (!user) return <div>Login to RSVP.</div>;
-  const alreadyRSVP = getRSVPStatus(event.id, user.id);
+  const alreadyRSVP = getRSVP(event.id, user.id);
 
   const handle = (status) => {
     try {

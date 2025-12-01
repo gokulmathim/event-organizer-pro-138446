@@ -13,6 +13,8 @@ export default [
       globals: {
         document: true,
         window: true,
+        location: true,
+        setTimeout: true,
         test: true,
         expect: true
       }
